@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+
+    <title>Student Details</title>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+            <li><a href="{% url 'admin_page' %}">Home</a></li>
+        </ul>
+    </nav>
+
+    <h1>Student: {{ student.full_name }}</h1>
+
+    <section class="list-cointainer">
+        <div class="all-courses">
+            <h2>All Courses</h2>
+            {% if student.status == 'red' %}
+            <div class="first-year">
+                <h3>1st Year</h3>
+                <ul class="all-courses-list">
+                    {% for course in courses %}
+                        {% if course.sem_red == 1 or course.sem_red == 2 %}
+                            <li>
+                                {{ course.name }}
+                                <a href="{% url 'enroll_course' student.id course.id %}">Enroll</a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+            <hr>
+
+            <div class="second-year">
+                <h3>2nd Year</h3>
+                <ul class="all-courses-list">
+                    {% for course in courses %}
+                        {% if course.sem_red == 3 or course.sem_red == 4 %}
+                            <li>
+                                {{ course.name }}
+                                <a href="{% url 'enroll_course' student.id course.id %}">Enroll</a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+            <hr>
+
+            <div class="third-year">
+                <h3>3rd Year</h3>
+                <ul class="all-courses-list">
+                    {% for course in courses %}
+                        {% if course.sem_red == 5 or course.sem_red == 6 %}
+                            <li>
+                                {{ course.name }}
+                                <a href="{% url 'enroll_course' student.id course.id %}">Enroll</a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+            <hr>
+         
+
+
+            {% elif student.status == 'izv' %}
+            <div class="first-year">
+                <h3>1st Year</h3>
+                <ul class="all-courses-list">
+                    {% for course in courses %}
+                        {% if course.sem_izv == 1 or course.sem_izv == 2 %}
+                            <li>
+                                {{ course.name }}
+                                <a href="{% url 'enroll_course' student.id course.id %}">Enroll</a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+            <hr>
+
+            <div class="second-year">
+                <h3>2nd Year</h3>
+                <ul class="all-courses-list">
+                    {% for course in courses %}
+                        {% if course.sem_izv == 3 or course.sem_izv == 4 %}
+                            <li>
+                                {{ course.name }}
+                                <a href="{% url 'enroll_course' student.id course.id %}">Enroll</a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+            <hr>
+
+            <div class="third-year">
+                <h3>3rd Year</h3>
+                <ul class="all-courses-list">
+                    {% for course in courses %}
+                        {% if course.sem_izv == 5 or course.sem_izv == 6 %}
+                            <li>
+                                {{ course.name }}
+                                <a href="{% url 'enroll_course' student.id course.id %}">Enroll</a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+            <hr>
+
+            <div class="fourth-year">
+                <h3>4th Year</h3>
+                <ul class="all-courses-list">
+                    {% for course in courses %}
+                        {% if course.sem_izv == 7 or course.sem_izv == 8 %}
+                            <li>
+                                {{ course.name }}
+                                <a href="{% url 'enroll_course' student.id course.id %}">Enroll</a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+            <hr>
+            {% endif %}
+        </div>
+    
+        <div class="assigned-courses">
+            <h2>Enrolled Courses</h2>
+            {% if student.status == 'red' %}
+            <div class="first-year">
+                <h3>1st Year</h3>
+                <ul class="assigned-courses-list">
+                    {% for assigned_course in assigned_courses %}
+                        {% if assigned_course.predmet.sem_red == 1 or assigned_course.predmet.sem_red == 2 %}
+                            <li>
+                                {{ assigned_course.predmet.name }} - Status: {{ assigned_course.readable_status }}
+                                <a href="{% url 'delete_course_status' student.id assigned_course.predmet.id %}">Disenroll</a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+            <hr>
+
+            <div class="second-year">
+                <h3>2nd Year</h3>
+                <ul class="assigned-courses-list">
+                    {% for assigned_course in assigned_courses %}
+                        {% if assigned_course.predmet.sem_red == 3 or assigned_course.predmet.sem_red == 4 %}
+                            <li>
+                                {{ assigned_course.predmet.name }} - Status: {{ assigned_course.readable_status }}
+                                <a href="{% url 'delete_course_status' student.id assigned_course.predmet.id %}">Disenroll</a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+            <hr>
+
+            <div class="third-year">
+                <h3>3rd Year</h3>
+                <ul class="assigned-courses-list">
+                    {% for assigned_course in assigned_courses %}
+                        {% if assigned_course.predmet.sem_red == 5 or assigned_course.predmet.sem_red == 6 %}
+                            <li>
+                                {{ assigned_course.predmet.name }} - Status: {{ assigned_course.readable_status }}
+                                <a href="{% url 'delete_course_status' student.id assigned_course.predmet.id %}">Disenroll</a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+            <hr>
+
+            {% elif student.status == 'izv' %}
+            <div class="first-year">
+                <h3>1st Year</h3>
+                <ul class="assigned-courses-list">
+                    {% for assigned_course in assigned_courses %}
+                        {% if assigned_course.predmet.sem_izv == 1 or assigned_course.predmet.sem_izv == 2 %}
+                            <li>
+                                {{ assigned_course.predmet.name }} - Status: {{ assigned_course.readable_status }}
+                                <a href="{% url 'delete_course_status' student.id assigned_course.predmet.id %}">Disenroll</a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+            <hr>
+
+            <div class="second-year">
+                <h3>2nd Year</h3>
+                <ul class="assigned-courses-list">
+                    {% for assigned_course in assigned_courses %}
+                        {% if assigned_course.predmet.sem_izv == 3 or assigned_course.predmet.sem_izv == 4 %}
+                            <li>
+                                {{ assigned_course.predmet.name }} - Status: {{ assigned_course.readable_status }}
+                                <a href="{% url 'delete_course_status' student.id assigned_course.predmet.id %}">Disenroll</a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+            <hr>
+
+            <div class="third-year">
+                <h3>3rd Year</h3>
+                <ul class="assigned-courses-list">
+                    {% for assigned_course in assigned_courses %}
+                        {% if assigned_course.predmet.sem_izv == 5 or assigned_course.predmet.sem_izv == 6 %}
+                            <li>
+                                {{ assigned_course.predmet.name }} - Status: {{ assigned_course.readable_status }}
+                                <a href="{% url 'delete_course_status' student.id assigned_course.predmet.id %}">Disenroll</a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+            <hr>
+
+            <div class="fourth-year">
+                <h3>4th Year</h3>
+                <ul class="assigned-courses-list">
+                    {% for assigned_course in assigned_courses %}
+                        {% if assigned_course.predmet.sem_izv == 7 or assigned_course.predmet.sem_izv == 8 %}
+                            <li>
+                                {{ assigned_course.predmet.name }} - Status: {{ assigned_course.readable_status }}
+                                <a href="{% url 'delete_course_status' student.id assigned_course.predmet.id %}">Disenroll</a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+            <hr>
+            {% endif %}
+        </div>
+    </section>
+    
+    
+</body>
+</html>

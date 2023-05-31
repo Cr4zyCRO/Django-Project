@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block edit_course %} 
+<div class="edit-course-form">
+    <form method="post">
+        {{form}}
+        <input type="submit" value="Edit Course">
+        {% csrf_token %}
+    </form>
+</div>
+{% endblock %}

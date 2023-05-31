@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block edit_user %} 
+<div class="edit-form">
+    <form method="post">
+        {{form}}
+        <input type="submit" value="Edit User">
+        {% csrf_token %}
+    </form>
+</div>
+{% endblock %}

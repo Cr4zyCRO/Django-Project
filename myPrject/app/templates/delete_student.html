@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block del_user %} 
+<div class="delete-form">
+    <form action="{% url 'delete' data %}" method="POST">
+        <p>Are you sure?</p>
+        <input type="submit" name="da" value="da">
+        <input type="submit" name="ne" value="ne">
+        {% csrf_token %}
+    </form>
+</div>
+{% endblock %}

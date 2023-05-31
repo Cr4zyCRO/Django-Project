@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+
+    <title>Profesor Details</title>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+            <li><a href="{% url 'admin_page' %}">Home</a></li>
+        </ul>
+    </nav>
+
+    <h1>Profesor: {{ profesor.full_name }}</h1>
+
+    <section class="list-cointainer">
+        <div class="all-courses">
+            <h2>All Courses</h2>
+            <ul class="all-courses-list">
+                {% for course in courses %}
+                <li>
+                    {{ course.name }}
+                    <a href="{% url 'prof_assign_course' profesor.id course.id %}">Assign</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    
+        <div class="assigned-courses">
+            <h2>Assigned Courses</h2>
+            <ul class="assigned-courses-list">
+                {% for assigned_course in assigned_courses %}
+                <li>
+                    {{ assigned_course.predmet.name }}
+                    <a href="{% url 'prof_unassign_course' profesor.id assigned_course.predmet.id %}">Unassign</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+    </section>
+    
+    
+</body>
+</html>

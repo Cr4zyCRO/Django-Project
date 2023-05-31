@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+
+    <title>Course Details</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+            <li><a href="{% url 'admin_page' %}">Home</a></li>
+        </ul>
+    </nav>
+
+    <h1> {{ course.name }} </h1>
+
+    <section class="list-cointainer">
+        <div class="all-profesors">
+            <h2>Profesors</h2>
+            <ul class="all-profesors-list">
+            {% for profesor in profesors %}
+                <li> 
+                    {{ profesor.full_name }}
+                    <a href="{% url 'profesor_details' profesor.id %}">{{ profesor.email }}</a> 
+                </li>
+            {% endfor %}
+            </ul>
+        </div>
+
+        <div class="all-students">
+            <h2>Students</h2>
+            <ul class="all-students-list">
+            {% for student in students %}
+                <li> 
+                    {{ student.full_name }} 
+                    <a href="{% url 'student_details' student.id %}">{{ student.email }}</a>
+                </li>
+            {% endfor %}
+            </ul>
+        </div>
+
+    </section>
+</body>

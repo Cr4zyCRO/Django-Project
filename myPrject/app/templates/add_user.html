@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block add_user %} 
+<div class="add-form">
+    <form method="post">
+        {% csrf_token %}
+        {{form}}
+        <input type="submit" value="Add User">
+    </form>
+</div>
+{% endblock %}
