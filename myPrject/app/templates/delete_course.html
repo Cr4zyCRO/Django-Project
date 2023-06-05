@@ -3,8 +3,8 @@
 <div class="delete-form">
     <form action="{% url 'delete_course' data %}" method="POST">
         <p>Are you sure?</p>
-        <input type="submit" name="da" value="da">
-        <input type="submit" name="ne" value="ne">
+        <input type="submit" name="Yes" value="Yes">
+        <input type="submit" name="No" value="No">
         {% csrf_token %}
     </form>
 </div>

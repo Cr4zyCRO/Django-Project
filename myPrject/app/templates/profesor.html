@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+    
+   
+    <title>Profesor</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+        </ul>
+    </nav>
+
+    <h1>Welcome {{ profesor.full_name }}</h1>
+
+    <div id="courses">
+        <!-- Courses related functionality goes here -->
+        <h2>Courses</h2>
+        <table>
+            <tr>
+                <td>Name</td>
+                <td>Code</td>
+                <td>ECTS</td>
+                <td>Redovni</td>
+                <td>Izvanredni</td>
+                <td>Izborni</td>
+            </tr>
+            {% for assigned_course in assigned_courses %}
+            <tr>
+                <td>  {{  assigned_course.predmet.name  }}  </td>
+                <td>  <a class="course-code" href="{% url 'assigned_course' assigned_course.predmet.id %}">{{  assigned_course.predmet.kod  }}</a>  </td>
+                <td>  {{  assigned_course.predmet.ects  }}  </td>
+                <td>  {{  assigned_course.predmet.sem_red  }}  </td>
+                <td>  {{  assigned_course.predmet.sem_izv  }}  </td>
+                <td>  {{  assigned_course.predmet.izborni  }}  </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

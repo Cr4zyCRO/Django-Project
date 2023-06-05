@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+    
+   
+    <title>Profesor</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+            <li><a href="{% url 'profesor_page' profesor.id %}">Home</a></li>
+
+        </ul>
+    </nav>
+
+    <h1>{{ student.full_name }} Info</h1>
+
+    <div id="courses">
+        <table>
+            <tr>
+                <td>Course</td>
+                <td>Kod</td>
+                <td>Username</td>
+                <td>Email</td>
+                <td>Course Status</td>
+            </tr>
+
+            {% for course in courses %}
+            <tr>
+                <td> {{ course.predmet.name }} </td>
+                <td> {{ course.predmet.kod }} </td>
+                <td> {{ student.full_name }} </td>
+                <td> {{ student.email }}</td>
+                <td> {{ course.readable_status }} </td>
+            </tr>
+
+            {% endfor %}  
+        </table>
+             
+    </div>
+</body>

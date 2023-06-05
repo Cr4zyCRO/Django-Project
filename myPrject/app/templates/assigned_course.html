@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+    
+   
+    <title>Profesor</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+            <li><a href="{% url 'profesor_page' profesor.id %}">Home</a></li>
+
+            <li><a href="#Enrolled">Enrolled</a></li>
+            <li><a href="#GrantedSignatures">Granted Signatures</a></li>
+            <li><a href="#RevokedSignatures">Revoked Signatures</a></li>
+        </ul>
+    </nav>
+
+    <h1>{{ course.name }}</h1>
+
+    <div id="students">
+        <h2>Students</h2>
+        
+        <div id="Enrolled">
+            <h3>Enrolled</h3>
+            <table id="assigned">
+                <tr>
+                    <td>Name</td>
+                    <td>Username</td>
+                    <td>Email</td>
+                    <td>Status</td>
+                    <td>Course Status</td>
+                    <td></td>
+                </tr>
+    
+                {% for student in students %}
+                {% if student.status == "up" %}
+                <tr>
+                    <td> {{ student.student.full_name }} </td>
+                    <td> {{ student.student.username }} </td>
+                    <td> <a class="student-email" href="{% url 'profesor_studet_course' student.student.id %}">{{ student.student.email }}</a>  </td>
+                    <td> {{ student.student.readable_status }} </td>
+                    <td> {{ student.readable_status }} </td>
+                    <td>
+                        <span>
+                            <a href="{% url 'update_course_status' student.student.id course.id 'po' %}">Grant Signature</a>
+                            <a href="{% url 'update_course_status' student.student.id course.id 'ip' %}">Revoke Signature</a>
+                        </span>
+                    </td>
+                </tr>
+    
+                {% endif %}
+                {% endfor %}  
+            </table>
+        </div>
+
+        <div id="GrantedSignatures">
+            <h3>Granted Signatures</h3>
+            <table id="assigned">
+                <tr>
+                    <td>Name</td>
+                    <td>Username</td>
+                    <td>Email</td>
+                    <td>Status</td>
+                    <td>Course Status</td>
+                </tr>
+    
+                {% for student in students %}
+                {% if student.status == "po" %}
+                <tr>
+                    <td> {{ student.student.full_name }} </td>
+                    <td> {{ student.student.username }} </td>
+                    <td> <a class="student-email" href="{% url 'profesor_studet_course' student.student.id %}">{{ student.student.email }}</a>  </td>
+                    <td> {{ student.student.readable_status }} </td>
+                    <td> {{ student.readable_status }} </td>
+                </tr>
+    
+                {% endif %}
+                {% endfor %}  
+            </table>
+
+            <div id="RevokedSignatures">
+                <h3>Revoked Signatures</h3>
+                <table id="assigned">
+                    <tr>
+                        <td>Name</td>
+                        <td>Username</td>
+                        <td>Email</td>
+                        <td>Status</td>
+                        <td>Course Status</td>
+                    </tr>
+        
+                    {% for student in students %}
+                    {% if student.status == "ip" %}
+                    <tr>
+                        <td> {{ student.student.full_name }} </td>
+                        <td> {{ student.student.username }} </td>
+                        <td> <a class="student-email" href="{% url 'profesor_studet_course' student.student.id %}">{{ student.student.email }}</a>  </td>
+                        <td> {{ student.student.readable_status }} </td>
+                        <td> {{ student.readable_status }} </td>
+                    </tr>
+        
+                    {% endif %}
+                    {% endfor %}  
+                </table>
+        </div>
+        
+             
+    </div>
+</body>

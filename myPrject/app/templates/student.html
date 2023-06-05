@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+    
+   
+    <title>Student</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+            <li><a href="#Year1">1st Year</a></li>
+            <li><a href="#Year2">2nd Year</a></li>
+            <li><a href="#Year3">3rd Year</a></li>
+            {% if student.status == 'izv' %}
+                <li><a href="#Year4">4th Year</a></li>
+            {% endif %}
+            
+        </ul>
+    </nav>
+
+    <h1>Welcome {{ student.full_name }}</h1>
+
+    <span id="passed-failed-courses">
+        <a href="{% url 'passed_courses' student.id %}"> Passed Courses </a>
+        <a href="{% url 'failed_courses' student.id %}"> Failed Courses </a>
+    </span>
+
+    {% if student.status == 'red' %}
+
+    <div id="courses">
+        <div class="CourseYear">
+            <span>
+                <h2 id="Year1">1st Year</h2>
+                <a href="{% url 'enroll' 1 %}"> All Courses </a>
+            </span>
+            
+            <h3>1st Semester</h3>
+            <table>
+                <tr>
+                    <td>Name</td>
+                    <td>Code</td>
+                    <td>Izborni</td>
+                    <td>ECTS</td>
+                    <td></td>
+                </tr>
+                {% for course in enrolled_courses %}
+                {% if course.predmet.sem_red == 1 %}
+                <tr>
+                    <td>  {{  course.predmet.name  }}  </td>
+                    <td>  {{  course.predmet.kod  }}  </td>
+                    <td>  {{  course.predmet.izborni  }}  </td>
+                    <td>  {{  course.predmet.ects  }}  </td>
+                    <td>
+                        <span>
+                            <a href="{% url 'unenrollment' student.id course.predmet.id %}">Unenroll Me</a>
+                        </span>
+                    </td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </table>
+
+
+            <h3>2nd Semester</h3>
+            <table>
+                <tr>
+                    <td>Name</td>
+                    <td>Code</td>
+                    <td>Izborni</td>
+                    <td>ECTS</td>
+                    <td></td>
+                </tr>
+                {% for course in enrolled_courses %}
+                {% if course.predmet.sem_red == 2 %}
+                <tr>
+                    <td>  {{  course.predmet.name  }}  </td>
+                    <td>  {{  course.predmet.kod  }}  </td>
+                    <td>  {{  course.predmet.izborni  }}  </td>
+                    <td>  {{  course.predmet.ects  }}  </td>
+                    <td>
+                        <span>
+                            <a href="{% url 'unenrollment' student.id course.predmet.id %}">Unenroll Me</a>
+                        </span>
+                    </td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+
+    <div id="courses">
+        <div class="CourseYear">
+            <span>
+                <h2 id="Year2">2nd Year</h2>
+                <a href="{% url 'enroll' 2 %}"> All Courses </a>
+            </span>
+            
+            <h3>3rd Semester</h3>
+            <table>
+                <tr>
+                    <td>Name</td>
+                    <td>Code</td>
+                    <td>Izborni</td>
+                    <td>ECTS</td>
+                    <td></td>
+                </tr>
+                {% for course in enrolled_courses %}
+                {% if course.predmet.sem_red == 3 %}
+                <tr>
+                    <td>  {{  course.predmet.name  }}  </td>
+                    <td>  {{  course.predmet.kod  }}  </td>
+                    <td>  {{  course.predmet.izborni  }}  </td>
+                    <td>  {{  course.predmet.ects  }}  </td>
+                    <td>
+                        <span>
+                            <a href="{% url 'unenrollment' student.id course.predmet.id %}">Unenroll Me</a>
+                        </span>
+                    </td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </table>
+
+
+            <h3>4th Semester</h3>
+            <table>
+                <tr>
+                    <td>Name</td>
+                    <td>Code</td>
+                    <td>Izborni</td>
+                    <td>ECTS</td>
+                    <td></td>
+                </tr>
+                {% for course in enrolled_courses %}
+                {% if course.predmet.sem_red == 4 %}
+                <tr>
+                    <td>  {{  course.predmet.name  }}  </td>
+                    <td>  {{  course.predmet.kod  }}  </td>
+                    <td>  {{  course.predmet.izborni  }}  </td>
+                    <td>  {{  course.predmet.ects  }}  </td>
+                    <td>
+                        <span>
+                            <a href="{% url 'unenrollment' student.id course.predmet.id %}">Unenroll Me</a>
+                        </span>
+                    </td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+
+    <div id="courses">
+        <div class="CourseYear">
+            <span>
+                <h2 id="Year3">3rd Year</h2>
+                <a href="{% url 'enroll' 3 %}"> All Courses </a>
+            </span>
+            
+            <h3>5th Semester</h3>
+            <table>
+                <tr>
+                    <td>Name</td>
+                    <td>Code</td>
+                    <td>Izborni</td>
+                    <td>ECTS</td>
+                    <td></td>
+                </tr>
+                {% for course in enrolled_courses %}
+                {% if course.predmet.sem_red == 5 %}
+                <tr>
+                    <td>  {{  course.predmet.name  }}  </td>
+                    <td>  {{  course.predmet.kod  }}  </td>
+                    <td>  {{  course.predmet.izborni  }}  </td>
+                    <td>  {{  course.predmet.ects  }}  </td>
+                    <td>
+                        <span>
+                            <a href="{% url 'unenrollment' student.id course.predmet.id %}">Unenroll Me</a>
+                        </span>
+                    </td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </table>
+
+            <h3>6th Semester</h3>
+            <table>
+                <tr>
+                    <td>Name</td>
+                    <td>Code</td>
+                    <td>Izborni</td>
+                    <td>ECTS</td>
+                    <td></td>
+                </tr>
+                {% for course in enrolled_courses %}
+                {% if course.predmet.sem_red == 6 %}
+                <tr>
+                    <td>  {{  course.predmet.name  }}  </td>
+                    <td>  {{  course.predmet.kod  }}  </td>
+                    <td>  {{  course.predmet.izborni  }}  </td>
+                    <td>  {{  course.predmet.ects  }}  </td>
+                    <td>
+                        <span>
+                            <a href="{% url 'unenrollment' student.id course.predmet.id %}">Unenroll Me</a>
+                        </span>
+                    </td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+
+    {% elif student.status == 'izv' %}
+
+    <div id="courses">
+        <div class="CourseYear">
+            <span>
+                <h2 id="Year1">1st Year</h2>
+                <a href="{% url 'enroll' 1 %}"> All Courses </a>
+            </span>
+            
+            <h3>1st Semester</h3>
+            <table>
+                <tr>
+                    <td>Name</td>
+                    <td>Code</td>
+                    <td>Izborni</td>
+                    <td>ECTS</td>
+                    <td></td>
+                </tr>
+                {% for course in enrolled_courses %}
+                {% if course.predmet.sem_izv == 1  %}
+                <tr>
+                    <td>  {{  course.predmet.name  }}  </td>
+                    <td>  {{  course.predmet.kod  }}  </td>
+                    <td>  {{  course.predmet.izborni  }}  </td>
+                    <td>  {{  course.predmet.ects  }}  </td>
+                    <td>
+                        <span>
+                            <a href="{% url 'unenrollment' student.id course.predmet.id %}">Unenroll Me</a>
+                        </span>
+                    </td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </table>
+
+
+            <h3>2nd Semester</h3>
+            <table>
+                <tr>
+                    <td>Name</td>
+                    <td>Code</td>
+                    <td>Izborni</td>
+                    <td>ECTS</td>
+                    <td></td>
+                </tr>
+                {% for course in enrolled_courses %}
+                {% if course.predmet.sem_izv == 2  %}
+                <tr>
+                    <td>  {{  course.predmet.name  }}  </td>
+                    <td>  {{  course.predmet.kod  }}  </td>
+                    <td>  {{  course.predmet.izborni  }}  </td>
+                    <td>  {{  course.predmet.ects  }}  </td>
+                    <td>
+                        <span>
+                            <a href="{% url 'unenrollment' student.id course.predmet.id %}">Unenroll Me</a>
+                        </span>
+                    </td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+
+    <div id="courses">
+        <div class="CourseYear">
+            <span>
+                <h2 id="Year2">2nd Year</h2>
+                <a href="{% url 'enroll' 2 %}"> All Courses </a>
+            </span>
+            
+            <h3>3rd Semester</h3>
+            <table>
+                <tr>
+                    <td>Name</td>
+                    <td>Code</td>
+                    <td>Izborni</td>
+                    <td>ECTS</td>
+                    <td></td>
+                </tr>
+                {% for course in enrolled_courses %}
+                {% if course.predmet.sem_izv == 3  %}
+                <tr>
+                    <td>  {{  course.predmet.name  }}  </td>
+                    <td>  {{  course.predmet.kod  }}  </td>
+                    <td>  {{  course.predmet.izborni  }}  </td>
+                    <td>  {{  course.predmet.ects  }}  </td>
+                    <td>
+                        <span>
+                            <a href="{% url 'unenrollment' student.id course.predmet.id %}">Unenroll Me</a>
+                        </span>
+                    </td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </table>
+
+
+            <h3>4th Semester</h3>
+            <table>
+                <tr>
+                    <td>Name</td>
+                    <td>Code</td>
+                    <td>Izborni</td>
+                    <td>ECTS</td>
+                    <td></td>
+                </tr>
+                {% for course in enrolled_courses %}
+                {% if course.predmet.sem_izv == 4  %}
+                <tr>
+                    <td>  {{  course.predmet.name  }}  </td>
+                    <td>  {{  course.predmet.kod  }}  </td>
+                    <td>  {{  course.predmet.izborni  }}  </td>
+                    <td>  {{  course.predmet.ects  }}  </td>
+                    <td>
+                        <span>
+                            <a href="{% url 'unenrollment' student.id course.predmet.id %}">Unenroll Me</a>
+                        </span>
+                    </td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+
+    <div id="courses">
+        <div class="CourseYear">
+            <span>
+                <h2 id="Year3">3rd Year</h2>
+                <a href="{% url 'enroll' 3 %}"> All Courses </a>
+            </span>
+            
+            <h3>5th Semester</h3>
+            <table>
+                <tr>
+                    <td>Name</td>
+                    <td>Code</td>
+                    <td>Izborni</td>
+                    <td>ECTS</td>
+                    <td></td>
+                </tr>
+                {% for course in enrolled_courses %}
+                {% if course.predmet.sem_izv == 5  %}
+                <tr>
+                    <td>  {{  course.predmet.name  }}  </td>
+                    <td>  {{  course.predmet.kod  }}  </td>
+                    <td>  {{  course.predmet.izborni  }}  </td>
+                    <td>  {{  course.predmet.ects  }}  </td>
+                    <td>
+                        <span>
+                            <a href="{% url 'unenrollment' student.id course.predmet.id %}">Unenroll Me</a>
+                        </span>
+                    </td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </table>
+
+            <h3>6th Semester</h3>
+            <table>
+                <tr>
+                    <td>Name</td>
+                    <td>Code</td>
+                    <td>Izborni</td>
+                    <td>ECTS</td>
+                    <td></td>
+                </tr>
+                {% for course in enrolled_courses %}
+                {% if course.predmet.sem_izv == 6  %}
+                <tr>
+                    <td>  {{  course.predmet.name  }}  </td>
+                    <td>  {{  course.predmet.kod  }}  </td>
+                    <td>  {{  course.predmet.izborni  }}  </td>
+                    <td>  {{  course.predmet.ects  }}  </td>
+                    <td>
+                        <span>
+                            <a href="{% url 'unenrollment' student.id course.predmet.id %}">Unenroll Me</a>
+                        </span>
+                    </td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+
+    <div id="courses">
+        <div class="CourseYear">
+            <span>
+                <h2 id="Year4">4th Year</h2>
+                <a href="{% url 'enroll' 4 %}"> All Courses </a>
+            </span>
+            
+            <h3>7th Semester</h3>
+            <table>
+                <tr>
+                    <td>Name</td>
+                    <td>Code</td>
+                    <td>Izborni</td>
+                    <td>ECTS</td>
+                    <td></td>
+                </tr>
+                {% for course in enrolled_courses %}
+                {% if course.predmet.sem_izv == 7  %}
+                <tr>
+                    <td>  {{  course.predmet.name  }}  </td>
+                    <td>  {{  course.predmet.kod  }}  </td>
+                    <td>  {{  course.predmet.izborni  }}  </td>
+                    <td>  {{  course.predmet.ects  }}  </td>
+                    <td>
+                        <span>
+                            <a href="{% url 'unenrollment' student.id course.predmet.id %}">Unenroll Me</a>
+                        </span>
+                    </td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </table>
+
+            <h3>8th Semester</h3>
+            <table>
+                <tr>
+                    <td>Name</td>
+                    <td>Code</td>
+                    <td>Izborni</td>
+                    <td>ECTS</td>
+                    <td></td>
+                </tr>
+                {% for course in enrolled_courses %}
+                {% if course.predmet.sem_izv == 8  %}
+                <tr>
+                    <td>  {{  course.predmet.name  }}  </td>
+                    <td>  {{  course.predmet.kod  }}  </td>
+                    <td>  {{  course.predmet.izborni  }}  </td>
+                    <td>  {{  course.predmet.ects  }}  </td>
+                    <td>
+                        <span>
+                            <a href="{% url 'unenrollment' student.id course.predmet.id %}">Unenroll Me</a>
+                        </span>
+                    </td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+    {% endif %}
+</body>
+</html>

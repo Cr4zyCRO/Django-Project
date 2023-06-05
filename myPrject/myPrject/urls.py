@@ -26,42 +26,49 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(template_name="logout.html"), name='logout'),
     path('redirect/', views.redirect_page, name="redirect_page"),
 
-    path('admin_page/', views.admin_page, name='admin_page'),
-
-    path('addUser/', views.add_user, name='addUser'),
-    path('addCourse/', views.add_course, name='addCourse'),
-
-    path('editUser/<int:id>', views.edit_user, name='editUser'),
-    path('editCourse/<int:id>', views.edit_course, name='editCourse'),
-
-    path('confirm_delete/<int:id>', views.confirm_delete, name='confirm_delete'),
-    path('confirm_del_course/<int:id>',
+    path('adminPage/', views.admin_page, name='admin_page'),
+    path('Register-user/', views.add_user, name='addUser'),
+    path('Register-course/', views.add_course, name='addCourse'),
+    path('Edit-user/<int:id>', views.edit_user, name='editUser'),
+    path('Edit-course/<int:id>', views.edit_course, name='editCourse'),
+    path('Confirm-Delete/<int:id>', views.confirm_delete, name='confirm_delete'),
+    path('Confirm-delete/<int:id>',
          views.confirm_del_course, name='confirm_del_course'),
-
-    path('dlelete_user/<int:id>', views.dlelete_user, name='delete'),
-    path('dlelete_course/<int:id>', views.dlelete_course, name='delete_course'),
-
-    path('courseDetails/<int:id>',
+    path('Delete-user/<int:id>', views.dlelete_user, name='delete'),
+    path('Delete-course/<int:id>', views.dlelete_course, name='delete_course'),
+    path('Course-details/<int:id>',
          views.course_details, name='courseDetails'),
-
-    path('profesor_details/<int:id>',
+    path('Profesor-Details/<int:id>',
          views.profesor_details, name='profesor_details'),
-    path('assign_course/<int:user_id>/<int:course_id>',
+    path('Assign-profesor/<int:user_id>/<int:course_id>',
          views.assign_course, name='prof_assign_course'),
-    path('unassign_course/<int:user_id>/<int:course_id>',
+    path('Unassign-profesor/<int:user_id>/<int:course_id>',
          views.unassign_course, name='prof_unassign_course'),
-
-    path('student_details/<int:id>', views.student_details, name='student_details'),
-    path('enroll_course/<int:student_id>/<int:course_id>',
+    path('Student-Details/<int:id>', views.student_details, name='student_details'),
+    path('Enroll-student/<int:student_id>/<int:course_id>',
          views.enroll_course, name='enroll_course'),
-    path('update_course_status/<int:student_id>/<int:course_id>/<str:new_status>',
+    path('Update-student-course/<int:student_id>/<int:course_id>/<str:new_status>',
          views.update_course_status, name='update_course_status'),
-    path('delete_course_status/<int:student_id>/<int:course_id>',
+    path('Unenroll-student/<int:student_id>/<int:course_id>',
          views.delete_course_status, name='delete_course_status'),
 
 
-    path('profesor_page/<int:id>', views.profesor_page, name='profesor_page'),
-    path('student_page/<int:id>', views.student_page, name='student_page'),
+    path('profesor/<int:id>', views.profesor_page, name='profesor_page'),
+    path('Course-Details/<int:course_id>',
+         views.assigned_course, name='assigned_course'),
+    path('Student-Info/<int:student_id>',
+         views.profesor_studet_course, name='profesor_studet_course'),
+
+
+
+    path('student/<int:id>', views.student_page, name='student_page'),
+    path('enroll/<int:year>', views.course_enroll, name='enroll'),
+    path('passed/<int:id>', views.passed_courses, name='passed_courses'),
+    path('failed/<int:id>', views.failed_courses, name='failed_courses'),
+    path('enrollment/<int:student_id>/<int:course_id>',
+         views.enrollment, name='enrollment'),
+    path('unenrollment/<int:student_id>/<int:course_id>',
+         views.unenrollment, name='unenrollment'),
 
 
 ]

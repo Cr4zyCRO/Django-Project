@@ -78,6 +78,13 @@ td {
     border: 1px solid var(--form-border)
 }
 
+
+td span {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
 .delete-form {
     display: flex;
     flex-direction: column;
@@ -584,4 +591,16 @@ h1 {
 .all-courses-list a:hover,
 .assigned-courses-list a:hover {
     background-color: var(--form-button-hover)
+}
+
+.CourseYear>span {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#passed-failed-courses {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
