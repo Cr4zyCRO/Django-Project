@@ -21,8 +21,11 @@
     <h1>Profesor: {{ profesor.full_name }}</h1>
 
     <section class="list-cointainer">
+
         <div class="all-courses">
+
             <h2>All Courses</h2>
+
             <ul class="all-courses-list">
                 {% for course in courses %}
                 <li>
@@ -31,22 +34,25 @@
                 </li>
                 {% endfor %}
             </ul>
+
         </div>
     
         <div class="assigned-courses">
+
             <h2>Assigned Courses</h2>
+
             <ul class="assigned-courses-list">
                 {% for assigned_course in assigned_courses %}
                 <li>
-                    {{ assigned_course.predmet.name }}
-                    <a href="{% url 'prof_unassign_course' profesor.id assigned_course.predmet.id %}">Unassign</a>
+                    {{ assigned_course.name }}
+                    <a href="{% url 'prof_unassign_course' profesor.id assigned_course.id %}">Unassign</a>
                 </li>
                 {% endfor %}
             </ul>
-        </div>
 
+        </div>
+        
     </section>
-    
     
 </body>
 </html>

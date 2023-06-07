@@ -3,8 +3,8 @@
 <div class="edit-course-form">
     <form method="post">
         {{form}}
-        <input type="submit" value="Edit Course">
         {% csrf_token %}
+        <input type="submit" value="Edit Course">
     </form>
 </div>
 {% endblock %}

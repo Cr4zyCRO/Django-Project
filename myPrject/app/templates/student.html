@@ -44,22 +44,22 @@
             <h3>1st Semester</h3>
             <table>
                 <tr>
-                    <td>Name</td>
-                    <td>Code</td>
-                    <td>Izborni</td>
-                    <td>ECTS</td>
+                    <td><strong>Name</strong></td>
+                    <td><strong>Code</strong></td>
+                    <td><strong>Izborni</strong></td>
+                    <td><strong>ECTS</strong></td>
                     <td></td>
                 </tr>
                 {% for course in enrolled_courses %}
-                {% if course.predmet.sem_red == 1 %}
+                {% if course.sem_red == 1 %}
                 <tr>
-                    <td>  {{  course.predmet.name  }}  </td>
-                    <td>  {{  course.predmet.kod  }}  </td>
-                    <td>  {{  course.predmet.izborni  }}  </td>
-                    <td>  {{  course.predmet.ects  }}  </td>
+                    <td>  {{  course.name  }}  </td>
+                    <td>  {{  course.kod  }}  </td>
+                    <td>  {{  course.izborni  }}  </td>
+                    <td>  {{  course.ects  }}  </td>
                     <td>
                         <span>
-                            <a href="{% url 'unenrollment' student.id course.predmet.id %}">Unenroll Me</a>
+                            <a href="{% url 'unenrollment' student.id course.id %}">Unenroll Me</a>
                         </span>
                     </td>
                 </tr>
@@ -71,22 +71,22 @@
             <h3>2nd Semester</h3>
             <table>
                 <tr>
-                    <td>Name</td>
-                    <td>Code</td>
-                    <td>Izborni</td>
-                    <td>ECTS</td>
+                    <td><strong>Name</strong></td>
+                    <td><strong>Code</strong></td>
+                    <td><strong>Izborni</strong></td>
+                    <td><strong>ECTS</strong></td>
                     <td></td>
                 </tr>
                 {% for course in enrolled_courses %}
-                {% if course.predmet.sem_red == 2 %}
+                {% if course.sem_red == 2 %}
                 <tr>
-                    <td>  {{  course.predmet.name  }}  </td>
-                    <td>  {{  course.predmet.kod  }}  </td>
-                    <td>  {{  course.predmet.izborni  }}  </td>
-                    <td>  {{  course.predmet.ects  }}  </td>
+                    <td>  {{  course.name  }}  </td>
+                    <td>  {{  course.kod  }}  </td>
+                    <td>  {{  course.izborni  }}  </td>
+                    <td>  {{  course.ects  }}  </td>
                     <td>
                         <span>
-                            <a href="{% url 'unenrollment' student.id course.predmet.id %}">Unenroll Me</a>
+                            <a href="{% url 'unenrollment' student.id course.id %}">Unenroll Me</a>
                         </span>
                     </td>
                 </tr>
@@ -106,22 +106,22 @@
             <h3>3rd Semester</h3>
             <table>
                 <tr>
-                    <td>Name</td>
-                    <td>Code</td>
-                    <td>Izborni</td>
-                    <td>ECTS</td>
+                    <td><strong>Name</strong></td>
+                    <td><strong>Code</strong></td>
+                    <td><strong>Izborni</strong></td>
+                    <td><strong>ECTS</strong></td>
                     <td></td>
                 </tr>
                 {% for course in enrolled_courses %}
-                {% if course.predmet.sem_red == 3 %}
+                {% if course.sem_red == 3 %}
                 <tr>
-                    <td>  {{  course.predmet.name  }}  </td>
-                    <td>  {{  course.predmet.kod  }}  </td>
-                    <td>  {{  course.predmet.izborni  }}  </td>
-                    <td>  {{  course.predmet.ects  }}  </td>
+                    <td>  {{  course.name  }}  </td>
+                    <td>  {{  course.kod  }}  </td>
+                    <td>  {{  course.izborni  }}  </td>
+                    <td>  {{  course.ects  }}  </td>
                     <td>
                         <span>
-                            <a href="{% url 'unenrollment' student.id course.predmet.id %}">Unenroll Me</a>
+                            <a href="{% url 'unenrollment' student.id course.id %}">Unenroll Me</a>
                         </span>
                     </td>
                 </tr>
@@ -133,22 +133,22 @@
             <h3>4th Semester</h3>
             <table>
                 <tr>
-                    <td>Name</td>
-                    <td>Code</td>
-                    <td>Izborni</td>
-                    <td>ECTS</td>
+                    <td><strong>Name</strong></td>
+                    <td><strong>Code</strong></td>
+                    <td><strong>Izborni</strong></td>
+                    <td><strong>ECTS</strong></td>
                     <td></td>
                 </tr>
                 {% for course in enrolled_courses %}
-                {% if course.predmet.sem_red == 4 %}
+                {% if course.sem_red == 4 %}
                 <tr>
-                    <td>  {{  course.predmet.name  }}  </td>
-                    <td>  {{  course.predmet.kod  }}  </td>
-                    <td>  {{  course.predmet.izborni  }}  </td>
-                    <td>  {{  course.predmet.ects  }}  </td>
+                    <td>  {{  course.name  }}  </td>
+                    <td>  {{  course.kod  }}  </td>
+                    <td>  {{  course.izborni  }}  </td>
+                    <td>  {{  course.ects  }}  </td>
                     <td>
                         <span>
-                            <a href="{% url 'unenrollment' student.id course.predmet.id %}">Unenroll Me</a>
+                            <a href="{% url 'unenrollment' student.id course.id %}">Unenroll Me</a>
                         </span>
                     </td>
                 </tr>
@@ -168,22 +168,22 @@
             <h3>5th Semester</h3>
             <table>
                 <tr>
-                    <td>Name</td>
-                    <td>Code</td>
-                    <td>Izborni</td>
-                    <td>ECTS</td>
+                    <td><strong>Name</strong></td>
+                    <td><strong>Code</strong></td>
+                    <td><strong>Izborni</strong></td>
+                    <td><strong>ECTS</strong></td>
                     <td></td>
                 </tr>
                 {% for course in enrolled_courses %}
-                {% if course.predmet.sem_red == 5 %}
+                {% if course.sem_red == 5 %}
                 <tr>
-                    <td>  {{  course.predmet.name  }}  </td>
-                    <td>  {{  course.predmet.kod  }}  </td>
-                    <td>  {{  course.predmet.izborni  }}  </td>
-                    <td>  {{  course.predmet.ects  }}  </td>
+                    <td>  {{  course.name  }}  </td>
+                    <td>  {{  course.kod  }}  </td>
+                    <td>  {{  course.izborni  }}  </td>
+                    <td>  {{  course.ects  }}  </td>
                     <td>
                         <span>
-                            <a href="{% url 'unenrollment' student.id course.predmet.id %}">Unenroll Me</a>
+                            <a href="{% url 'unenrollment' student.id course.id %}">Unenroll Me</a>
                         </span>
                     </td>
                 </tr>
@@ -194,22 +194,22 @@
             <h3>6th Semester</h3>
             <table>
                 <tr>
-                    <td>Name</td>
-                    <td>Code</td>
-                    <td>Izborni</td>
-                    <td>ECTS</td>
+                    <td><strong>Name</strong></td>
+                    <td><strong>Code</strong></td>
+                    <td><strong>Izborni</strong></td>
+                    <td><strong>ECTS</strong></td>
                     <td></td>
                 </tr>
                 {% for course in enrolled_courses %}
-                {% if course.predmet.sem_red == 6 %}
+                {% if course.sem_red == 6 %}
                 <tr>
-                    <td>  {{  course.predmet.name  }}  </td>
-                    <td>  {{  course.predmet.kod  }}  </td>
-                    <td>  {{  course.predmet.izborni  }}  </td>
-                    <td>  {{  course.predmet.ects  }}  </td>
+                    <td>  {{  course.name  }}  </td>
+                    <td>  {{  course.kod  }}  </td>
+                    <td>  {{  course.izborni  }}  </td>
+                    <td>  {{  course.ects  }}  </td>
                     <td>
                         <span>
-                            <a href="{% url 'unenrollment' student.id course.predmet.id %}">Unenroll Me</a>
+                            <a href="{% url 'unenrollment' student.id course.id %}">Unenroll Me</a>
                         </span>
                     </td>
                 </tr>
@@ -231,22 +231,22 @@
             <h3>1st Semester</h3>
             <table>
                 <tr>
-                    <td>Name</td>
-                    <td>Code</td>
-                    <td>Izborni</td>
-                    <td>ECTS</td>
+                    <td><strong>Name</strong></td>
+                    <td><strong>Code</strong></td>
+                    <td><strong>Izborni</strong></td>
+                    <td><strong>ECTS</strong></td>
                     <td></td>
                 </tr>
                 {% for course in enrolled_courses %}
-                {% if course.predmet.sem_izv == 1  %}
+                {% if course.sem_izv == 1  %}
                 <tr>
-                    <td>  {{  course.predmet.name  }}  </td>
-                    <td>  {{  course.predmet.kod  }}  </td>
-                    <td>  {{  course.predmet.izborni  }}  </td>
-                    <td>  {{  course.predmet.ects  }}  </td>
+                    <td>  {{  course.name  }}  </td>
+                    <td>  {{  course.kod  }}  </td>
+                    <td>  {{  course.izborni  }}  </td>
+                    <td>  {{  course.ects  }}  </td>
                     <td>
                         <span>
-                            <a href="{% url 'unenrollment' student.id course.predmet.id %}">Unenroll Me</a>
+                            <a href="{% url 'unenrollment' student.id course.id %}">Unenroll Me</a>
                         </span>
                     </td>
                 </tr>
@@ -258,22 +258,22 @@
             <h3>2nd Semester</h3>
             <table>
                 <tr>
-                    <td>Name</td>
-                    <td>Code</td>
-                    <td>Izborni</td>
-                    <td>ECTS</td>
+                    <td><strong>Name</strong></td>
+                    <td><strong>Code</strong></td>
+                    <td><strong>Izborni</strong></td>
+                    <td><strong>ECTS</strong></td>
                     <td></td>
                 </tr>
                 {% for course in enrolled_courses %}
-                {% if course.predmet.sem_izv == 2  %}
+                {% if course.sem_izv == 2  %}
                 <tr>
-                    <td>  {{  course.predmet.name  }}  </td>
-                    <td>  {{  course.predmet.kod  }}  </td>
-                    <td>  {{  course.predmet.izborni  }}  </td>
-                    <td>  {{  course.predmet.ects  }}  </td>
+                    <td>  {{  course.name  }}  </td>
+                    <td>  {{  course.kod  }}  </td>
+                    <td>  {{  course.izborni  }}  </td>
+                    <td>  {{  course.ects  }}  </td>
                     <td>
                         <span>
-                            <a href="{% url 'unenrollment' student.id course.predmet.id %}">Unenroll Me</a>
+                            <a href="{% url 'unenrollment' student.id course.id %}">Unenroll Me</a>
                         </span>
                     </td>
                 </tr>
@@ -293,22 +293,22 @@
             <h3>3rd Semester</h3>
             <table>
                 <tr>
-                    <td>Name</td>
-                    <td>Code</td>
-                    <td>Izborni</td>
-                    <td>ECTS</td>
+                    <td><strong>Name</strong></td>
+                    <td><strong>Code</strong></td>
+                    <td><strong>Izborni</strong></td>
+                    <td><strong>ECTS</strong></td>
                     <td></td>
                 </tr>
                 {% for course in enrolled_courses %}
-                {% if course.predmet.sem_izv == 3  %}
+                {% if course.sem_izv == 3  %}
                 <tr>
-                    <td>  {{  course.predmet.name  }}  </td>
-                    <td>  {{  course.predmet.kod  }}  </td>
-                    <td>  {{  course.predmet.izborni  }}  </td>
-                    <td>  {{  course.predmet.ects  }}  </td>
+                    <td>  {{  course.name  }}  </td>
+                    <td>  {{  course.kod  }}  </td>
+                    <td>  {{  course.izborni  }}  </td>
+                    <td>  {{  course.ects  }}  </td>
                     <td>
                         <span>
-                            <a href="{% url 'unenrollment' student.id course.predmet.id %}">Unenroll Me</a>
+                            <a href="{% url 'unenrollment' student.id course.id %}">Unenroll Me</a>
                         </span>
                     </td>
                 </tr>
@@ -320,22 +320,22 @@
             <h3>4th Semester</h3>
             <table>
                 <tr>
-                    <td>Name</td>
-                    <td>Code</td>
-                    <td>Izborni</td>
-                    <td>ECTS</td>
+                    <td><strong>Name</strong></td>
+                    <td><strong>Code</strong></td>
+                    <td><strong>Izborni</strong></td>
+                    <td><strong>ECTS</strong></td>
                     <td></td>
                 </tr>
                 {% for course in enrolled_courses %}
-                {% if course.predmet.sem_izv == 4  %}
+                {% if course.sem_izv == 4  %}
                 <tr>
-                    <td>  {{  course.predmet.name  }}  </td>
-                    <td>  {{  course.predmet.kod  }}  </td>
-                    <td>  {{  course.predmet.izborni  }}  </td>
-                    <td>  {{  course.predmet.ects  }}  </td>
+                    <td>  {{  course.name  }}  </td>
+                    <td>  {{  course.kod  }}  </td>
+                    <td>  {{  course.izborni  }}  </td>
+                    <td>  {{  course.ects  }}  </td>
                     <td>
                         <span>
-                            <a href="{% url 'unenrollment' student.id course.predmet.id %}">Unenroll Me</a>
+                            <a href="{% url 'unenrollment' student.id course.id %}">Unenroll Me</a>
                         </span>
                     </td>
                 </tr>
@@ -355,22 +355,22 @@
             <h3>5th Semester</h3>
             <table>
                 <tr>
-                    <td>Name</td>
-                    <td>Code</td>
-                    <td>Izborni</td>
-                    <td>ECTS</td>
+                    <td><strong>Name</strong></td>
+                    <td><strong>Code</strong></td>
+                    <td><strong>Izborni</strong></td>
+                    <td><strong>ECTS</strong></td>
                     <td></td>
                 </tr>
                 {% for course in enrolled_courses %}
-                {% if course.predmet.sem_izv == 5  %}
+                {% if course.sem_izv == 5  %}
                 <tr>
-                    <td>  {{  course.predmet.name  }}  </td>
-                    <td>  {{  course.predmet.kod  }}  </td>
-                    <td>  {{  course.predmet.izborni  }}  </td>
-                    <td>  {{  course.predmet.ects  }}  </td>
+                    <td>  {{  course.name  }}  </td>
+                    <td>  {{  course.kod  }}  </td>
+                    <td>  {{  course.izborni  }}  </td>
+                    <td>  {{  course.ects  }}  </td>
                     <td>
                         <span>
-                            <a href="{% url 'unenrollment' student.id course.predmet.id %}">Unenroll Me</a>
+                            <a href="{% url 'unenrollment' student.id course.id %}">Unenroll Me</a>
                         </span>
                     </td>
                 </tr>
@@ -381,22 +381,22 @@
             <h3>6th Semester</h3>
             <table>
                 <tr>
-                    <td>Name</td>
-                    <td>Code</td>
-                    <td>Izborni</td>
-                    <td>ECTS</td>
+                    <td><strong>Name</strong></td>
+                    <td><strong>Code</strong></td>
+                    <td><strong>Izborni</strong></td>
+                    <td><strong>ECTS</strong></td>
                     <td></td>
                 </tr>
                 {% for course in enrolled_courses %}
-                {% if course.predmet.sem_izv == 6  %}
+                {% if course.sem_izv == 6  %}
                 <tr>
-                    <td>  {{  course.predmet.name  }}  </td>
-                    <td>  {{  course.predmet.kod  }}  </td>
-                    <td>  {{  course.predmet.izborni  }}  </td>
-                    <td>  {{  course.predmet.ects  }}  </td>
+                    <td>  {{  course.name  }}  </td>
+                    <td>  {{  course.kod  }}  </td>
+                    <td>  {{  course.izborni  }}  </td>
+                    <td>  {{  course.ects  }}  </td>
                     <td>
                         <span>
-                            <a href="{% url 'unenrollment' student.id course.predmet.id %}">Unenroll Me</a>
+                            <a href="{% url 'unenrollment' student.id course.id %}">Unenroll Me</a>
                         </span>
                     </td>
                 </tr>
@@ -416,22 +416,22 @@
             <h3>7th Semester</h3>
             <table>
                 <tr>
-                    <td>Name</td>
-                    <td>Code</td>
-                    <td>Izborni</td>
-                    <td>ECTS</td>
+                    <td><strong>Name</strong></td>
+                    <td><strong>Code</strong></td>
+                    <td><strong>Izborni</strong></td>
+                    <td><strong>ECTS</strong></td>
                     <td></td>
                 </tr>
                 {% for course in enrolled_courses %}
-                {% if course.predmet.sem_izv == 7  %}
+                {% if course.sem_izv == 7  %}
                 <tr>
-                    <td>  {{  course.predmet.name  }}  </td>
-                    <td>  {{  course.predmet.kod  }}  </td>
-                    <td>  {{  course.predmet.izborni  }}  </td>
-                    <td>  {{  course.predmet.ects  }}  </td>
+                    <td>  {{  course.name  }}  </td>
+                    <td>  {{  course.kod  }}  </td>
+                    <td>  {{  course.izborni  }}  </td>
+                    <td>  {{  course.ects  }}  </td>
                     <td>
                         <span>
-                            <a href="{% url 'unenrollment' student.id course.predmet.id %}">Unenroll Me</a>
+                            <a href="{% url 'unenrollment' student.id course.id %}">Unenroll Me</a>
                         </span>
                     </td>
                 </tr>
@@ -442,22 +442,22 @@
             <h3>8th Semester</h3>
             <table>
                 <tr>
-                    <td>Name</td>
-                    <td>Code</td>
-                    <td>Izborni</td>
-                    <td>ECTS</td>
+                    <td><strong>Name</strong></td>
+                    <td><strong>Code</strong></td>
+                    <td><strong>Izborni</strong></td>
+                    <td><strong>ECTS</strong></td>
                     <td></td>
                 </tr>
                 {% for course in enrolled_courses %}
-                {% if course.predmet.sem_izv == 8  %}
+                {% if course.sem_izv == 8  %}
                 <tr>
-                    <td>  {{  course.predmet.name  }}  </td>
-                    <td>  {{  course.predmet.kod  }}  </td>
-                    <td>  {{  course.predmet.izborni  }}  </td>
-                    <td>  {{  course.predmet.ects  }}  </td>
+                    <td>  {{  course.name  }}  </td>
+                    <td>  {{  course.kod  }}  </td>
+                    <td>  {{  course.izborni  }}  </td>
+                    <td>  {{  course.ects  }}  </td>
                     <td>
                         <span>
-                            <a href="{% url 'unenrollment' student.id course.predmet.id %}">Unenroll Me</a>
+                            <a href="{% url 'unenrollment' student.id course.id %}">Unenroll Me</a>
                         </span>
                     </td>
                 </tr>

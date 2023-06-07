@@ -7,7 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
-    
    
     <title>Profesor</title>
 </head>
@@ -26,10 +25,13 @@
     <h1>{{ course.name }}</h1>
 
     <div id="students">
+
         <h2>Students</h2>
         
         <div id="Enrolled">
+
             <h3>Enrolled</h3>
+
             <table id="assigned">
                 <tr>
                     <td>Name</td>
@@ -59,10 +61,13 @@
                 {% endif %}
                 {% endfor %}  
             </table>
+
         </div>
 
         <div id="GrantedSignatures">
+
             <h3>Granted Signatures</h3>
+
             <table id="assigned">
                 <tr>
                     <td>Name</td>
@@ -87,7 +92,9 @@
             </table>
 
             <div id="RevokedSignatures">
+
                 <h3>Revoked Signatures</h3>
+
                 <table id="assigned">
                     <tr>
                         <td>Name</td>
@@ -110,8 +117,8 @@
                     {% endif %}
                     {% endfor %}  
                 </table>
+
         </div>
         
-             
     </div>
 </body>

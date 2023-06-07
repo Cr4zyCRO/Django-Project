@@ -3,8 +3,8 @@
   <div class="login-form">
     <h2>Login</h2>
     <form method="post">
-      {% csrf_token %}
       {{ form }}
+      {% csrf_token %}
       <button type="submit">Login</button>
     </form>
   </div>

@@ -8,7 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
     
-   
     <title>Admin</title>
 </head>
 <body>
@@ -23,7 +22,7 @@
     <h1>Welcome {{ admin.full_name }}</h1>
 
     <div id="main">
-        <!-- The content of your main page goes here. -->
+
         <h2>Staff</h2>
         <span><a href="{% url 'addUser' %}">Add Staff</a></span>
 
@@ -51,11 +50,12 @@
             </tr>
             {% endfor %}
         </table>
+
     </div>
 
-    <!-- Add placeholders for the Students and Courses sections. -->
+
     <div id="students">
-        <!-- Students related functionality goes here -->
+
         <h2>Students</h2>
         <span><a href="{% url 'addUser' %}">Add Student</a></span>
 
@@ -87,7 +87,7 @@
     </div>
 
     <div id="courses">
-        <!-- Courses related functionality goes here -->
+        
         <h2>Courses</h2>
         <span><a href="{% url 'addCourse' %}">Add Course</a></span>
         <table>
@@ -117,6 +117,7 @@
             </tr>
             {% endfor %}
         </table>
+        
     </div>
 </body>
 </html>

@@ -23,10 +23,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     path('login/', LoginView.as_view(template_name="login.html"), name='login'),
-    path('logout/', LogoutView.as_view(template_name="logout.html"), name='logout'),
+    path('logout/', LogoutView.as_view(), name='logout'),
     path('redirect/', views.redirect_page, name="redirect_page"),
 
-    path('adminPage/', views.admin_page, name='admin_page'),
+    path('Admin/', views.admin_page, name='admin_page'),
     path('Register-user/', views.add_user, name='addUser'),
     path('Register-course/', views.add_course, name='addCourse'),
     path('Edit-user/<int:id>', views.edit_user, name='editUser'),

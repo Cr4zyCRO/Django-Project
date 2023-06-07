@@ -2,8 +2,6 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 
 
-# Create your models here.
-
 class Korisnik(AbstractUser):
     ROLES = (('prof', 'profesor'), ('stu', 'student'), ('admin', 'admin'))
     STATUS = (('none', 'None'), ('izv', 'izvanredni student'),
@@ -30,6 +28,10 @@ class Predmeti(models.Model):
     sem_red = models.IntegerField()
     sem_izv = models.IntegerField()
     izborni = models.CharField(max_length=50, choices=IZBORNI)
+
+    def get_readable_status(self, student):
+        upisni_list = self.upisnilist_set.get(student=student)
+        return upisni_list.readable_status()
 
 
 class UpisniList(models.Model):

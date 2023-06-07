@@ -2,8 +2,8 @@
 {% block add_user %} 
 <div class="add-form">
     <form method="post">
-        {% csrf_token %}
         {{form}}
+        {% csrf_token %}
         <input type="submit" value="Add User">
     </form>
 </div>

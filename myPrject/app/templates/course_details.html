@@ -20,8 +20,11 @@
     <h1> {{ course.name }} </h1>
 
     <section class="list-cointainer">
+
         <div class="all-profesors">
+
             <h2>Profesors</h2>
+
             <ul class="all-profesors-list">
             {% for profesor in profesors %}
                 <li> 
@@ -30,10 +33,13 @@
                 </li>
             {% endfor %}
             </ul>
+
         </div>
 
         <div class="all-students">
+
             <h2>Students</h2>
+
             <ul class="all-students-list">
             {% for student in students %}
                 <li> 
@@ -42,6 +48,7 @@
                 </li>
             {% endfor %}
             </ul>
+            
         </div>
 
     </section>
